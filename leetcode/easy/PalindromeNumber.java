@@ -36,6 +36,33 @@ public class PalindromeNumber {
 		return false;
 	}
 	
-	
+	/*
+	It works by first converting the input integer into a string.
+	This conversion males it easy to access individual digits (now characters)
+	by their position. The function then uses a simple for loop to iterate
+	only up to the middle of the string. In each step, it compares a character
+	from the beginning of the string with its corresponding character from the
+	end. If at any point these two characters don't match, the number can't be
+	a palindrome, so the function immediately returns false. If the loop completes
+	without finding any mismatches, it means all corresponding characters were 
+	identical, and the function correctly returns true, indicating that the
+	original number was indeed a palindrome.
+	*/
+	public static boolean isPalindrome2(int number) {
+		String s = String.valueOf(number); // Convert to String
+		int n = s.length(); // Store the String length to int n
+		
+		for(int i = 0; i < n/2; i++) {
+			// We check whether the elements at the same distance from
+			// beginning and from ending are same, if not we return false
+			if(s.charAt(i) != s.charAt(n-i-1)) return false;
+		}
+		// 12321
+		// i[0] = 1 	|	i[5 - 0 - 1] = 4
+		// i[0] && i[4] == 1
+		
+		// if no flaws are found we return true
+		return true;
+	}
 
 }
